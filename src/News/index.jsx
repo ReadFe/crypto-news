@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./Component/Navbars";
+import Content from "./Component/Content";
 
 export default class News extends React.Component {
 
@@ -7,6 +8,7 @@ export default class News extends React.Component {
         return(
             <div>
                 <Navbar />
+                <Content/>
             </div>
         )
 

@@ -7,7 +7,7 @@ export default class Navbars extends React.Component {
     render() {
         return (
             <div>
-                <Navbar className="p-4" bg="dark" data-bs-theme="dark">
+                <Navbar className="p-3 " bg="dark" data-bs-theme="dark">
                     <Container>
                     <Navbar.Brand href="#home">Crypto News</Navbar.Brand>
                     </Container>
