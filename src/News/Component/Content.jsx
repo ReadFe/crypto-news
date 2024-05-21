@@ -7,14 +7,15 @@ export default class Content extends React.Component {
 
     state = {
         data: [],
-        input: ''
+        input: '',
+        filter: []
   }
 
   
   getData = async () => {
       const response = await fetch('https://newsapi.org/v2/everything?q=bitcoin&apiKey=e171d2c395404c9cb49af54c89283081')
       const {articles} = await response.json()
-      this.setState({ data: articles });
+      this.setState({ data: articles, filter: articles });
     }                                                                                                                                                                                                                                             
 
     componentDidMount() {
@@ -27,15 +28,15 @@ export default class Content extends React.Component {
       const filteredCard = data.filter(item => {
         return item.title.toLowerCase().includes(inputText)
       })  
-      this.setState({data: filteredCard})
+      this.setState({filter: filteredCard})
     }
 
     render() {
         return (
             <Container>
               <input type="text" placeholder="Search..." className="w-100 my-5 p-3" onChange={e => this.setState({input: e.target.value}, () => this.Search(this.state.input))}  />
-              <div className="row justify-content-around" id="content">
-                <Card data={this.state.data}/>
+              <div className="row justify-content-around">
+                <Card data={this.state.filter}/>
               </div>
             </Container>
         )
